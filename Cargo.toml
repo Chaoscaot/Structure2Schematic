@@ -1,0 +1,2 @@
+[workspace]
+members = ["s2s_core", "s2s_web"]
