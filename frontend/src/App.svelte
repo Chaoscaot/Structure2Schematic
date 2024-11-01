@@ -1,9 +1,6 @@
 <script lang="ts">
 
-import Converter from "./Converter.svelte";
-import Firebase from "./lib/firebase.js";
+import Converter from "./lib/Converter.svelte";
 </script>
 
-<Firebase>
-    <Converter />
-</Firebase>
+<Converter />
