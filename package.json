@@ -1,0 +1,10 @@
+{
+  "name": "s2s",
+  "scripts": {
+    "dev": "pnpm run build:wasm && pnpm run dev:frontend",
+    "build:wasm": "cd s2s_web && wasm-pack build",
+    "dev:frontend": "cd frontend && pnpm dev",
+    "build": "pnpm run build:wasm && pnpm run build:frontend",
+    "build:frontend": "cd frontend && pnpm build"
+  }
+}
