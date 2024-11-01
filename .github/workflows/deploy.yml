@@ -16,16 +16,18 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      - uses: actions/checkout@v4
+      - name: Build
+        run: cargo build --verbose
+      - name: Run Clippy
+        run: cargo clippy --all-targets --all-features
+      - name: Run tests
+        run: cargo test --verbose
       - uses: pnpm/action-setup@v4
         with:
           version: 9
@@ -39,6 +41,25 @@ jobs:
         run: pnpm install
       - name: Build
         run: pnpm run build:frontend
+      - uses: actions/upload-artifact@master
+        with:
+          name: svelte-build
+          path: frontend/dist/
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@master
+        with:
+          name: svelte-build
+          path: frontend/dist/
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
