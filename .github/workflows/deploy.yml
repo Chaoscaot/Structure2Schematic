@@ -4,6 +4,10 @@ on:
   push:
     branches: ["master"]
 
+  pull_request:
+    branches:
+      - master
+
   workflow_dispatch:
 
 permissions:
@@ -46,6 +50,8 @@ jobs:
           name: svelte-build
           path: frontend/dist/
   deploy:
+    needs: build
+    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/master'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
