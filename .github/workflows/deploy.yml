@@ -32,6 +32,9 @@ jobs:
 
       - name: wasm-pack-action
         uses: jetli/wasm-pack-action@v0.4.0
+      - name: Build Wasm
+        run: wasm-pack build
+        working-directory: ./s2s_web
       - name: Install dependencies
         run: pnpm install
       - name: Build
