@@ -53,7 +53,5 @@ mod tests {
             Some("schematic"),
             Flavor::GzCompressed
         ).unwrap();
-
-        File::create("tests/out.schem").unwrap().write(&schem_data).unwrap();
     }
 }

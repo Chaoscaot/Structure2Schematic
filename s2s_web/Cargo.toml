@@ -3,6 +3,7 @@ name = "s2s_web"
 version = "0.1.0"
 authors = ["Chaos <max@chaoscaot.de>"]
 edition = "2018"
+wasm-opt = false
 
 [lib]
 crate-type = ["cdylib", "rlib"]
