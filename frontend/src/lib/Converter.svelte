@@ -24,4 +24,4 @@
     }
 </script>
 
-<input type="file" multiple onchange={onFileChange}>
+<input type="file" multiple accept=".nbt,.mcstructure" onchange={onFileChange}>
