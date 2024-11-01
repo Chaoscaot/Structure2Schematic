@@ -1,14 +1,8 @@
 <script lang="ts">
     import { convert_structure } from 's2s_web'
     import saveAs from "file-saver"
-    import {analytics} from "./firebase";
-    import { logEvent } from "firebase/analytics";
 
     function onFileChange(event: Event & { currentTarget: HTMLInputElement }) {
-        logEvent(analytics, "convert_structure", {
-            content_type: "file",
-            value: event.currentTarget.files!.length,
-        })
         for (const file of event.currentTarget.files!) {
             const reader = new FileReader()
 

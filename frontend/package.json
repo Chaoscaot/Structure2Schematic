@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "file-saver": "^2.0.5",
-    "firebase": "^11.0.1",
     "s2s_web": "workspace:*",
     "vite-plugin-wasm": "^3.3.0"
   }
