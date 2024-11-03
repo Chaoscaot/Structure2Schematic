@@ -1,0 +1,8 @@
+[package]
+name = "s2s_cli"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = "4.5.20"
+s2s_core = { path = "../s2s_core" }

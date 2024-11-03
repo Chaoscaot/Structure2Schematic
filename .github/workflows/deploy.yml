@@ -1,4 +1,4 @@
-name: Deploy static content to Pages
+name: Build and Deploy
 
 on:
   push:
@@ -21,7 +21,7 @@ concurrency:
 
 jobs:
   build:
-
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -50,6 +50,7 @@ jobs:
           name: svelte-build
           path: frontend/dist/
   deploy:
+    name: Deploy
     needs: build
     if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/master'
     environment:

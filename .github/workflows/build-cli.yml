@@ -1,0 +1,24 @@
+name: Build CLI
+
+on:
+  push:
+    branches: ["master"]
+
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout
+      - name: Build
+        run: cargo build --release --verbose --package s2s_cli
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: s2s_cli
+          path: 'target/release/s2s_cli'
