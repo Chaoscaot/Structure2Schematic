@@ -4,6 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-serde = { version = "1.0.214", features = ["derive"] }
+serde = { version = "1.0.215", features = ["derive"] }
 quartz_nbt = { version = "0.2.9", features = ["serde"] }
 convert_case = "0.6.0"
