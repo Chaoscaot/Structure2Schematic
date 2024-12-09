@@ -14,7 +14,7 @@ default = ["console_error_panic_hook"]
 [dependencies]
 wasm-bindgen = "0.2.84"
 console_error_panic_hook = { version = "0.1.7", optional = true }
-js-sys = "0.3.72"
+js-sys = "0.3.76"
 web-sys = { version = "0.3.72", features = ["File", "FileReader", "FileReaderSync"]  }
 s2s_core = { path = "../s2s_core" }
 
